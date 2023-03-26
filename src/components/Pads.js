@@ -8,6 +8,11 @@ function Pads() {
 
 
     const playSound = e => {
+        const audio=document.getElementById(e.target.innerText);
+        audio.volume=volume;
+        audio.currentTime=0;
+        audio.play();
+        document.getElementById("display").innerText=bank1[e.target.innerText].name;
     }
 
 
@@ -20,10 +25,12 @@ function Pads() {
               id={pad+idx}
               key={pad+idx}
               handleClick={playSound}
-              element={pad} />
+              element={pad}
+    power={power}
+         />
           );
         })}
-        <div id='display'> Show the name of current audio here </div>  
+        <div id='display'>Play a sound</div>  
       </div>
     )
   }
